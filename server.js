@@ -6,10 +6,14 @@ const clientRouter = require('./routers/client_router');
 const loanRouter = require('./routers/loan_router');
 const appliedLoan = require('./routers/apply_loan_router');
 const loanRestructuringRouter = require('./routers/loan_restructuring_router');
+require('dotenv').config()
 
-const url = "mongodb+srv://clinpride:Wuma7L6RuVhvf4Ki@cluster0.c0tmv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const DB_URL = process.env.DB_URL;
+const PORT = process.env.PORT || 4071;
+
+
 const app = express();
-mongoose.connect(url)
+mongoose.connect(DB_URL)
     .then(() => {
         console.log('The MongoDB has connected successfully');
     })
@@ -24,7 +28,6 @@ app.use('/api/v1/loan', loanRouter);
 app.use('/api/v1/appliedloan', appliedLoan);
 app.use('/api/v1/loan_restructuring_router', loanRestructuringRouter);
 
-const Port = 4071;
-app.listen(Port, () => {
-    console.log("The server is running at port:", Port);
+app.listen(PORT, () => {
+    console.log("The server is running at port:", PORT);
 });
