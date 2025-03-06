@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redsphere-deployment
+  namespace: red-sphere
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redsphere
+  template:
+    metadata:
+      labels:
+        app: redsphere
+        appVersion: 'fdcd748e771495f49e112d7e7487630fd2a3604c'
+    spec:
+      containers:
+      - name: redsphere-container
+        image: kaributechsworkflow/red-sphere-bk:fdcd748e771495f49e112d7e7487630fd2a3604c
+        ports:
+        - containerPort: 4071
