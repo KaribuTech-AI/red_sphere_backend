@@ -12,10 +12,10 @@ spec:
     metadata:
       labels:
         app: redsphere
-        appVersion: '57ac6b1397077af43ee75c9e69bebc611778234e'
+        appVersion: '265197bf4df40a7cb15fcc73a63d1f79d0cf1205'
     spec:
       containers:
       - name: redsphere-container
-        image: kaributechsworkflow/red-sphere-bk:57ac6b1397077af43ee75c9e69bebc611778234e
+        image: kaributechsworkflow/red-sphere-bk:265197bf4df40a7cb15fcc73a63d1f79d0cf1205
         ports:
         - containerPort: 4071
